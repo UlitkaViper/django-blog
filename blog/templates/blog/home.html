@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+Home page
+{% endblock title %}
+
+
+{% block content %}
+
+{% for post in object_list %}
+
+<div class='alert alert-info w-75 text-dark'>
+
+    <a href=" {% url 'post-details' post.id %}" class="text-decoration-none text-dark">
+        <h3 style="overflow-wrap: break-word;">{{ post.title }}</h3>
+    </a>
+    <hr>
+    <p class="text-dark" style="overflow: hidden;
+    text-overflow: ellipsis;max-height:195px;">{{ post.description }}</p>
+
+</div>
+
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+Home page
+{% endblock title %}
+
+
+{% block content %}
+<div class="w-75">
+    <form action="{% url 'update-or-delete' id %}" method="POST">
+        {%csrf_token%}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-outline-success" name="CompleteUpdate">Update</button>
+    </form>
+</div>
+
+{% endblock content %}

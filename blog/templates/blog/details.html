@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+Home page
+{% endblock title %}
+
+
+{% block content %}
+<div class="alert alert-info w-75 text-dark">
+
+    <form action="{% url 'update-or-delete' post_details.id %}" method="POST">
+        {%csrf_token%}
+        <h3 class="text-dark" style="overflow-wrap: break-word;"> {{ post_details.title }} </h3>
+        <hr>
+        <p> {{ post_details.description }} </p>
+        <div class="row justify-content-end mr-1">
+            <button class="btn btn-outline-info" name='Update' value="1">Update</button>
+            <button class="btn btn-outline-danger ml-2" name='Delete' value="1">Delete</button>
+        </div>
+
+    </form>
+</div>
+
+{% endblock content %}
